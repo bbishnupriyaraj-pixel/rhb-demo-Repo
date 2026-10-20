@@ -1,0 +1,1140 @@
+{
+  "info": {
+    "_postman_id": "93dc25a5-f0d1-4f34-bc2c-1c8e2f43291c",
+    "name": "Postman-Collection-rhb-demo",
+    "description": "CRUD, pagination/search, join query and external API call",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50603930",
+    "_collection_link": "https://go.postman.co/collection/50603930-93dc25a5-f0d1-4f34-bc2c-1c8e2f43291c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "SearchEmployees (pagination)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/searchEmployee?queryString=ra&pageNo=0&pageSize=101",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "searchEmployee"
+          ],
+          "query": [
+            {
+              "key": "queryString",
+              "value": "ra"
+            },
+            {
+              "key": "pageNo",
+              "value": "0"
+            },
+            {
+              "key": "pageSize",
+              "value": "101"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Search employees (pagination)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/searchEmployee?queryString=Bishnu&pageNo=0&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "searchEmployee"
+              ],
+              "query": [
+                {
+                  "key": "queryString",
+                  "value": "Bishnu"
+                },
+                {
+                  "key": "pageNo",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:32:46 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"firstName\": \"Bishnu\",\n            \"lastName\": \"Behera\",\n            \"email\": \"Bishnu@example.com\",\n            \"departmentId\": 1,\n            \"departmentName\": \"Engineering\"\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"Bishnu1\",\n            \"lastName\": \"Behera1\",\n            \"email\": \"Bishnu1@example.com\",\n            \"departmentId\": 2,\n            \"departmentName\": \"Operations\"\n        }\n    ],\n    \"page\": {\n        \"size\": 2,\n        \"number\": 0,\n        \"totalElements\": 2,\n        \"totalPages\": 1\n    }\n}"
+        },
+        {
+          "name": "SearchEmployees (pagination)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/searchEmployee?queryString=ra&pageNo=0&pageSize=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "searchEmployee"
+              ],
+              "query": [
+                {
+                  "key": "queryString",
+                  "value": "ra"
+                },
+                {
+                  "key": "pageNo",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:35:32 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"firstName\": \"Bishnu\",\n            \"lastName\": \"Behera\",\n            \"email\": \"Bishnu@example.com\",\n            \"departmentId\": 1,\n            \"departmentName\": \"Engineering\"\n        },\n        {\n            \"id\": 2,\n            \"firstName\": \"Priya\",\n            \"lastName\": \"Behera\",\n            \"email\": \"Priya@example.com\",\n            \"departmentId\": 1,\n            \"departmentName\": \"Engineering\"\n        },\n        {\n            \"id\": 3,\n            \"firstName\": \"Raj\",\n            \"lastName\": \"kumar\",\n            \"email\": \"raj@example.com\",\n            \"departmentId\": 2,\n            \"departmentName\": \"Operations\"\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"Bishnu1\",\n            \"lastName\": \"Behera1\",\n            \"email\": \"Bishnu1@example.com\",\n            \"departmentId\": 2,\n            \"departmentName\": \"Operations\"\n        },\n        {\n            \"id\": 5,\n            \"firstName\": \"Priya1\",\n            \"lastName\": \"Behera1\",\n            \"email\": \"Priya1@example.com\",\n            \"departmentId\": 3,\n            \"departmentName\": \"HumanResource\"\n        },\n        {\n            \"id\": 6,\n            \"firstName\": \"Raj1\",\n            \"lastName\": \"Kumar1\",\n            \"email\": \"raj1@example.com\",\n            \"departmentId\": 3,\n            \"departmentName\": \"HumanResource\"\n        }\n    ],\n    \"page\": {\n        \"size\": 10,\n        \"number\": 0,\n        \"totalElements\": 6,\n        \"totalPages\": 1\n    }\n}"
+        },
+        {
+          "name": "SearchEmployees (pagination)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/searchEmployee?queryString=ra&pageNo=0&pageSize=101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "searchEmployee"
+              ],
+              "query": [
+                {
+                  "key": "queryString",
+                  "value": "ra"
+                },
+                {
+                  "key": "pageNo",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "101"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:36:26 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"page must be >= 0 and size must be 1..100\",\n    \"timestamp\": \"2026-10-20T16:36:26.920056900Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get employee by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/getEmployee/{{employeeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "getEmployee",
+            "{{employeeId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get employee by ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/getEmployee/{{employeeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "getEmployee",
+                "{{employeeId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 11:00:54 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"firstName\": \"Bishnu\",\n    \"lastName\": \"Behera\",\n    \"email\": \"Bishnu@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Bishnu15\",\n  \"lastName\": \"Priya15\",\n  \"email\": \"Bishnu15.Behera153@example.com\",\n  \"departmentId\": 2\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/createEmployee",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "createEmployee"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu\",\n  \"lastName\": \"Priya\",\n  \"email\": \"Bishnu.Behera@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/createEmployee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "createEmployee"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:36:18 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 4,\n    \"firstName\": \"Bishnu\",\n    \"lastName\": \"Priya\",\n    \"email\": \"Bishnu.Behera@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        },
+        {
+          "name": "Create employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu1\",\n  \"lastName\": \"Priya\",\n  \"email\": \"Bishnu1.Behera@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/createEmployee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "createEmployee"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:37:15 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 5,\n    \"firstName\": \"Bishnu1\",\n    \"lastName\": \"Priya\",\n    \"email\": \"Bishnu1.Behera@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        },
+        {
+          "name": "Create employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu1\",\n  \"lastName\": \"Priya1\",\n  \"email\": \"Bishnu1.Behera1@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/createEmployee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "createEmployee"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:38:29 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 7,\n    \"firstName\": \"Bishnu1\",\n    \"lastName\": \"Priya1\",\n    \"email\": \"Bishnu1.Behera1@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        },
+        {
+          "name": "Create employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu13\",\n  \"lastName\": \"Priya13\",\n  \"email\": \"Bishnu13.Behera13@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/createEmployee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "createEmployee"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:47:46 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 9,\n    \"firstName\": \"Bishnu13\",\n    \"lastName\": \"Priya13\",\n    \"email\": \"Bishnu13.Behera13@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        },
+        {
+          "name": "Create employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu15\",\n  \"lastName\": \"Priya15\",\n  \"email\": \"Bishnu15.Behera153@example.com\",\n  \"departmentId\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/createEmployee",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "createEmployee"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:48:38 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 10,\n    \"firstName\": \"Bishnu15\",\n    \"lastName\": \"Priya15\",\n    \"email\": \"Bishnu15.Behera153@example.com\",\n    \"departmentId\": 2,\n    \"departmentName\": \"Operations\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update employee",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Bishnu12\",\n  \"lastName\": \"priya2\",\n  \"email\": \"priya2.updated@example.com\",\n  \"departmentId\": 1\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/updateEmployee/{{updateEmployeeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "updateEmployee",
+            "{{updateEmployeeId}}"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update employee",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu1\",\n  \"lastName\": \"priya2\",\n  \"email\": \"priya2.updated@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/updateEmployee/7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "updateEmployee",
+                "7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:40:46 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 7,\n    \"firstName\": \"Bishnu1\",\n    \"lastName\": \"priya2\",\n    \"email\": \"priya2.updated@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        },
+        {
+          "name": "Update employee",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bishnu12\",\n  \"lastName\": \"priya2\",\n  \"email\": \"priya2.updated@example.com\",\n  \"departmentId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/updateEmployee/{{updateEmployeeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "updateEmployee",
+                "{{updateEmployeeId}}"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 10:45:34 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 7,\n    \"firstName\": \"Bishnu12\",\n    \"lastName\": \"priya2\",\n    \"email\": \"priya2.updated@example.com\",\n    \"departmentId\": 1,\n    \"departmentName\": \"Engineering\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete employee",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/deleteEmployee/{{deleteEmployeeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "deleteEmployee",
+            "{{deleteEmployeeId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete employee",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/deleteEmployee/7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "deleteEmployee",
+                "7"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:41:16 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"timestamp\": \"2026-10-20T16:41:16.282322500Z\",\n    \"error\": \"Employee not found: 7\"\n}"
+        },
+        {
+          "name": "Delete employee",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/deleteEmployee/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "deleteEmployee",
+                "6"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:41:29 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Employee with ID 6 deleted successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "getDepartment",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/employees/v1/getDepartment?name=operations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "employees",
+            "v1",
+            "getDepartment"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "operations"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "getDepartment",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/getDepartment?name=Engineering",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "getDepartment"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Engineering"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 11:03:38 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"email\": \"Bishnu@example.com\",\n        \"firstName\": \"Bishnu\",\n        \"lastName\": \"Behera\",\n        \"departmentName\": \"Engineering\"\n    },\n    {\n        \"id\": 2,\n        \"email\": \"Priya@example.com\",\n        \"firstName\": \"Priya\",\n        \"lastName\": \"Behera\",\n        \"departmentName\": \"Engineering\"\n    }\n]"
+        },
+        {
+          "name": "getDepartment",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/getDepartment?name=humanresource",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "getDepartment"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "humanresource"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 11:04:07 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 5,\n        \"email\": \"Priya1@example.com\",\n        \"firstName\": \"Priya1\",\n        \"lastName\": \"Behera1\",\n        \"departmentName\": \"HumanResource\"\n    }\n]"
+        },
+        {
+          "name": "getDepartment",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/v1/getDepartment?name=operations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees",
+                "v1",
+                "getDepartment"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "operations"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 11:04:36 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 3,\n        \"email\": \"raj@example.com\",\n        \"firstName\": \"Raj\",\n        \"lastName\": \"kumar\",\n        \"departmentName\": \"Operations\"\n    },\n    {\n        \"id\": 4,\n        \"email\": \"Bishnu1@example.com\",\n        \"firstName\": \"Bishnu1\",\n        \"lastName\": \"Behera1\",\n        \"departmentName\": \"Operations\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Call external Google API",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/external/google-check",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "external",
+            "google-check"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Call external Google API",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/external/google-check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "external",
+                "google-check"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 20 Oct 2026 16:46:54 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"url\": \"https://www.google.com\",\n    \"responseBodyLength\": 86794\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "employeeId",
+      "value": "1"
+    },
+    {
+      "key": "updateEmployeeId",
+      "value": ""
+    },
+    {
+      "key": "deleteEmployeeId",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: rhb-assignment-demo
+  datasource:
+    url: jdbc:h2:mem:demodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: bishnu
+    password: bishnu@4321
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    show-sql: false
+logging:
+  level:
+    com.rhb.demo: DEBUG
+    org.hibernate.SQL: DEBUG
