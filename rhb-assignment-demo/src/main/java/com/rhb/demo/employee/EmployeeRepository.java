@@ -13,23 +13,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	//#b. method with pagination
 	Page<Employee> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
 			String firstName, String lastName, String email, Pageable pageable);
-	
-	
-/*
- * @Query("select e from Employee e where lower(e.firstName) like lower(concat('%',:firstName,'%')) OR lower(e.lastName) like lower(concat('%',:lastName,'%')) OR lower(e.email) like lower(concat('%',:email,'%')) "
- * ) Page<Employee>
- * findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
- * 
- * @Param("firstName") String firstName,
- * 
- * @Param("lastName") String lastName,@Param("email") String email,Pageable
- * pageable);
- */
-	
-	
 
-	Page<Employee> findAllByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
-			String firstName, String lastName, String email, Pageable pageable);
 	@Query("select e from Employee e join fetch e.department where e.id=:id")
 	Optional<Employee> findEmployeeWithDepartmentById(@Param("id") Long id);
 
